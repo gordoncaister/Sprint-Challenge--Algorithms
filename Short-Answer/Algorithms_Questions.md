@@ -10,7 +10,18 @@ a)  a = 0
     while (a < n * n * n):
       a = a + n * n
 ```
+n = 3
+a less than 3*3*3 27
+0 + 9
+9 + 9
+18 + 9
 
+a less than 4*4*4 =64
+0 + 16
+16 + 16
+32 + 16
+48 + 16
+time
 
 ```
 b)  sum = 0
@@ -28,6 +39,16 @@ c)  def bunnyEars(bunnies):
 
       return 2 + bunnyEars(bunnies-1)
 ```
+
+bunnies = 5
+returns 2+bunnyEars(4)
+    returns 2+bunnyEars(3)
+      returns 2+bunnyEars(2)
+        returns 2+bunnyEars(1)
+          returns 2+bunnyEars(0)
+returns 0
+
+
 
 ## Exercise II
 
