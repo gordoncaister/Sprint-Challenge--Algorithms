@@ -96,7 +96,16 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        pass
+        self.swap_item()
+        self.set_light_on()
+        while self.light_is_on():
+            while self.can_move_right():
+                self.move_right()
+                if self.compare_item == 1:
+                    self.swap_item
+            while self.compare_item != None:
+                self.move_left
+            
 
 
 if __name__ == "__main__":
@@ -117,12 +126,11 @@ the bit of information is the light, light has to be on for the robot to move, o
 
 swap the item because it's currently holding none and we want it to hold the first item, we start at 0
 while the light is on
-    if it can move right:
+    while it can move right:
         move right
         if the held item is larger than the current item on the list
-            switch items
-            its now holding the smaller of the two
-    if either item is none:
+            switch items, its now holding the smaller of the two
+    while either item is none:
         move left
     if we can still move right
         move right
