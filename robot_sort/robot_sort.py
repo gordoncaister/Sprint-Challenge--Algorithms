@@ -96,10 +96,28 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
-
-
+        self.swap_item()
+        self.set_light_on()
+        while self.light_is_on():
+            print("light: ",self._light,"item: ", self._item,"pos: ", self._position,"compare: ", self.compare_item())
+            while self.can_move_right():
+                self.move_right()
+                if self.compare_item() == 1:
+                    print("item is smaller")
+                    print("light: ",self._light,"item: ", self._item,"pos: ", self._position,"compare: ", self.compare_item())
+                    self.swap_item()
+            while self.compare_item() != None:
+                print("item is not none")
+                print("light: ",self._light,"item: ", self._item,"pos: ", self._position,"compare: ", self.compare_item())
+                self.move_left()
+            self.swap_item()
+            print("item", self._item)
+            print("light: ",self._light,"item: ", self._item,"pos: ", self._position,"compare: ", self.compare_item())
+            if self.can_move_right():
+                self.move_right()
+                self.swap_item()
+            else:
+                self.set_light_off()
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
@@ -110,3 +128,24 @@ if __name__ == "__main__":
 
     robot.sort()
     print(robot._list)
+
+'''
+planning:
+
+the bit of information is the light, light has to be on for the robot to move, once the robot moves to the end of the list, turn the light off, effectively turning off the robot
+
+swap the item because it's currently holding none and we want it to hold the first item, we start at 0
+while the light is on
+    while it can move right:
+        move right
+        if the held item is larger than the current item on the list
+            switch items, its now holding the smaller of the two
+    while either item is none:
+        move left
+    switch the smallest item with the none item
+    if we can still move right
+        move right
+        swap the items because we need to now sort this item
+    else we are at the end of the list
+        turn the light off
+'''
