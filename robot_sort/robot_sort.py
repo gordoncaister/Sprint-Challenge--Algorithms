@@ -96,7 +96,6 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
         pass
 
 
@@ -110,3 +109,24 @@ if __name__ == "__main__":
 
     robot.sort()
     print(robot._list)
+
+'''
+planning:
+
+the bit of information is the light, light has to be on for the robot to move, once the robot moves to the end of the list, turn the light off, effectively turning off the robot
+
+swap the item because it's currently holding none and we want it to hold the first item, we start at 0
+while the light is on
+    if it can move right:
+        move right
+        if the held item is larger than the current item on the list
+            switch items
+            its now holding the smaller of the two
+    if either item is none:
+        move left
+    if we can still move right
+        move right
+        swap the items because we need to now sort this item
+    else we are at the end of the list
+        turn the light off
+'''
